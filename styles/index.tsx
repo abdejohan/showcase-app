@@ -10,6 +10,10 @@ const styles = StyleSheet.create({
 	expand: {
 		flexGrow: 1,
 	},
+	test: {
+		borderWidth: 1,
+		borderColor: "red",
+	},
 });
 
 const globalStyles = { ...styles, ...typography };
