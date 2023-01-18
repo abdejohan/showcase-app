@@ -1,16 +1,17 @@
 import { StyleSheet } from "react-native";
+import typography from "./typography";
 
-const globalStyles = StyleSheet.create({
+const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		backgroundColor: "#F4EADF",
 		alignItems: "center",
 	},
-	title: {
-		fontWeight: "bold",
-		fontSize: 20,
-		letterSpacing: -0.8,
+	expand: {
+		flexGrow: 1,
 	},
 });
+
+const globalStyles = { ...styles, ...typography };
 
 export default globalStyles;
