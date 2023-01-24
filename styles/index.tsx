@@ -7,13 +7,13 @@ const styles = StyleSheet.create({
 		backgroundColor: "#F4EADF",
 		alignItems: "center",
 	},
-	expand: {
-		flexGrow: 1,
-	},
 	test: {
 		borderWidth: 1,
 		borderColor: "red",
 	},
+	expand: { flexGrow: 1 },
+	darkfade: { backgroundColor: "#00000066" },
+	darkestfade: { backgroundColor: "#00000099" },
 });
 
 const globalStyles = { ...styles, ...typography };

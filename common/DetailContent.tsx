@@ -1,5 +1,6 @@
 import { Text, View, StyleSheet, ScrollView } from "react-native";
 import globalStyles from "../styles";
+import { Product } from "../types";
 import Button from "./Button";
 
 const styles = StyleSheet.create({
@@ -14,16 +15,18 @@ const styles = StyleSheet.create({
 });
 
 interface ContentProps {
-	item: any;
+	product: Product;
 }
 
-const DetailContent: React.FC<ContentProps> = ({ item }) => {
+const DetailContent: React.FC<ContentProps> = ({ product }) => {
 	return (
 		<ScrollView contentContainerStyle={styles.contentContainer}>
-			<Text style={globalStyles.description}>{item.description}</Text>
-			<Text style={globalStyles.title}>{item.title}</Text>
-			<Text style={{ ...globalStyles.subTitle, marginVertical: 5 }}>€{item.price}</Text>
-			<Text style={globalStyles.paragraph}>{item.text}</Text>
+			<Text style={globalStyles.title}>{product.title}</Text>
+			<Text style={globalStyles.description}>{product.description}</Text>
+			<Text style={{ ...globalStyles.subTitle, marginVertical: 5 }}>
+				€{product.price}
+			</Text>
+			<Text style={globalStyles.paragraph}>{product.text}</Text>
 			<View style={globalStyles.expand} />
 			<Button title='order' onPress={() => console.log("pressed")} />
 		</ScrollView>

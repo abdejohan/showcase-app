@@ -11,10 +11,10 @@ const Navigation = () => {
 			<Stack.Navigator initialRouteName='Home' screenOptions={{ headerShown: false }}>
 				<Stack.Screen name='Home' component={HomeScreen} />
 				<Stack.Screen
-					name='Overview'
+					name='Details'
 					component={DetailsScreen}
 					sharedElements={(route) => {
-						return [route.params.item.id];
+						return [route.params.product.id];
 					}}
 				/>
 			</Stack.Navigator>

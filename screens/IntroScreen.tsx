@@ -10,7 +10,9 @@ import {
 } from "react-native";
 import Constants from "expo-constants";
 import introDonut from "../assets/intro-donut.jpg";
-const { height: SCREEN_HEIGHT, width } = Dimensions.get("window");
+const SCREEN_HEIGHT = Dimensions.get("window").height;
+const animatedValue = new Animated.Value(0);
+
 const styles = StyleSheet.create({
 	image: {
 		flex: 1,
@@ -24,11 +26,17 @@ const styles = StyleSheet.create({
 		fontWeight: "bold",
 		textAlign: "center",
 	},
+	animatedView: {
+		position: "absolute",
+		width: "100%",
+		height: "100%",
+		bottom: animatedValue as any,
+		flex: 1,
+		zIndex: 4,
+	},
 });
 
 const IntroScreen: React.FC = (): JSX.Element => {
-	const animatedValue = new Animated.Value(0);
-
 	const startTransition = () => {
 		Animated.timing(animatedValue, {
 			duration: 700,
@@ -44,15 +52,7 @@ const IntroScreen: React.FC = (): JSX.Element => {
 	}, []);
 
 	return (
-		<Animated.View
-			style={{
-				position: "absolute",
-				width: "100%",
-				height: "100%",
-				bottom: animatedValue,
-				flex: 1,
-				zIndex: 4,
-			}}>
+		<Animated.View style={styles.animatedView}>
 			<ImageBackground source={introDonut} resizeMode='cover' style={styles.image}>
 				<StatusBar style='light' />
 				<ActivityIndicator size='large' />
