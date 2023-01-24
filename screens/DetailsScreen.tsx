@@ -25,15 +25,15 @@ interface DetailProps {
 }
 
 const DetailsScreen: React.FC<DetailProps> = ({ route, navigation }) => {
-	const { item } = route.params;
+	const { product } = route.params;
 
 	return (
 		<View style={globalStyles.container}>
-			<SharedElement id={item.id} style={styles.heroContainer}>
-				<Image source={item.image} style={styles.heroImage} resizeMode='contain' />
+			<SharedElement id={product.id} style={styles.heroContainer}>
+				<Image source={product.image} style={styles.heroImage} resizeMode='cover' />
 			</SharedElement>
 			<BackButton navigation={navigation} />
-			<DetailContent item={item} />
+			<DetailContent product={product} />
 		</View>
 	);
 };
